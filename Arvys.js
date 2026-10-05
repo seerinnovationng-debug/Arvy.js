@@ -1,20 +1,20 @@
-let students = [];
+let studentList = [];
 
-//this is the function to add students to the empty students array
-function addStudent(name,matricNumber, level, department) {
-    let student = {
-        name: name,
-        matricNumber: matricNumber,
-        level: level,
-        department: department
+// This function is used to add a student to the student list
+function registerStudent(studentName, studentMatric, studentLevel, studentDepartment) {
+    let newStudent = {
+        name: studentName,
+        matricNumber: studentMatric,
+        level: studentLevel,
+        department: studentDepartment
     };
-    students.push(student);
+
+    studentList.push(newStudent);
 }
 
-// this is the function to display all the students
-
-function displayStudents() {
-    for (let student of students) {
+// This function is used to display all the students
+function showStudents() {
+    for (let student of studentList) {
         console.log("Name: " + student.name);
         console.log("Matric Number: " + student.matricNumber);
         console.log("Level: " + student.level);
@@ -22,22 +22,27 @@ function displayStudents() {
     }
 }
 
-// this is the function used to remove the last student
-
-function removeLastStudent() {
-    if (students.length > 0) {
-        students.pop();
-    }else {
+// This function is used to remove the last student added
+function deleteLastStudent() {
+    if (studentList.length > 0) {
+        studentList.pop();
+    } else {
         console.log("No students to remove.");
-    }   
+    }
 }
 
-addStudent("Alice", "UNI2043AT", 300, "Computer Science");
-addStudent("Bob", "UNI2678OJ", 300, "Mathematics");
-addStudent("Charlie", "UNI2391CB", 300, "Physics"   );  
+// Adding students to the system
+registerStudent("Daniel", "UNI3156AK", 200, "Computer Science");
+registerStudent("Esther", "UNI4289BM", 300, "Mathematics");
+registerStudent("Michael", "UNI5732CP", 300, "Physics");
 
-console.log("List of all the student added:");
-displayStudents();
-removeLastStudent();
+// Display all students
+console.log("List of all students added:");
+showStudents();
+
+// Remove the last student
+deleteLastStudent();
+
+// Display the students after removing the last one
 console.log("After removing the last student:");
-displayStudents();
+showStudents();
